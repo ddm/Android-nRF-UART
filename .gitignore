@@ -1,8 +1,8 @@
 .gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/dictionaries/*.xml
-/.idea/libraries
+local.properties
+.idea/workspace.xml
+.idea/dictionaries/*.xml
+.idea/libraries
 .DS_Store
-/build
-/key*
+build
+key*
