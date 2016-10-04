@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+pushd `dirname $0` > /dev/null
+DIR=`pwd -P`
+popd > /dev/null
+
+rm $DIR/local.keystore
+gradle build
+keytool -genkey -v -keystore $DIR/local.keystore -alias self_signed -keyalg RSA -keysize 2048 -validity 20000
+jarsigner -keystore $DIR/local.keystore -verbose $DIR/app/build/outputs/apk/app-release-unsigned.apk self_signed
+adb install $DIR/app/build/outputs/apk/app-release-unsigned.apk
+
